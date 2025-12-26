@@ -96,6 +96,23 @@ animal-safari/
    - Enter 'y' or 'Y' when prompted to play the animal's sound
    - View the animal's image in the displayed window
 
+### Using JAR File
+
+The easiest way to run the application is using the pre-built JAR file.
+
+#### Downloading the JAR
+
+1. Go to the [Releases](releases) page
+2. Download the latest `animal-safari.jar` file from the assets
+
+#### Running the JAR
+
+Run the JAR file from the command line:
+```bash
+java -jar animal-safari.jar
+```
+
+The JAR file is self-contained and can be run from any directory. All resources (images and audio) are embedded within the JAR, so no additional files are needed.
 
 ## Usage Instructions
 
