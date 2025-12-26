@@ -38,4 +38,20 @@ jobs:
         name: animal-safari-jar
         path: animal-safari.jar
         retention-days: 30
+    
+    - name: Create Release
+      if: github.event_name == 'push'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: animal-safari.jar
+        tag_name: release-${{ github.run_number }}
+        name: Release #${{ github.run_number }} - ${{ github.sha }}
+        body: |
+          Automated release from commit ${{ github.sha }}
+          
+          Commit: ${{ github.event.head_commit.message }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
