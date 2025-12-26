@@ -3,12 +3,22 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.imageio.ImageIO;
+import java.net.URL;
 class ShowPicture {
     static String resourcePath = "resources/images/";
+    
+    private static Image loadImage(String filename) {
+        // Load from classpath (works in both JAR and development)
+        URL imageUrl = ShowPicture.class.getResource("/" + resourcePath + filename);
+        if (imageUrl == null) {
+            throw new RuntimeException("Resource not found: /" + resourcePath + filename);
+        }
+        return Toolkit.getDefaultToolkit().getImage(imageUrl);
+    }
  public void peacock() {
   JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "peacock.jpg");
+          Image img = loadImage("peacock.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -25,7 +35,7 @@ class ShowPicture {
   public void tiger() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "tiger.jpg");
+          Image img = loadImage("tiger.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -42,7 +52,7 @@ class ShowPicture {
  public void giraffe(){
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "giraffe.jpg");
+          Image img = loadImage("giraffe.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -59,7 +69,7 @@ class ShowPicture {
  public void zebra() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "zebra.jpg");
+          Image img = loadImage("zebra.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -76,7 +86,7 @@ class ShowPicture {
  public void nightingale() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "nightingale.jpg");
+          Image img = loadImage("nightingale.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -93,7 +103,7 @@ class ShowPicture {
  public void lion() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "lion.jpg");
+          Image img = loadImage("lion.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -110,7 +120,7 @@ class ShowPicture {
  public void crocodile() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "crocodile.jpg");
+          Image img = loadImage("crocodile.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -127,7 +137,7 @@ class ShowPicture {
 public void elephant() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "elephant.jpg");
+          Image img = loadImage("elephant.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -144,7 +154,7 @@ public void elephant() {
 public void chimpanzee() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "chimpanzee.jpg");
+          Image img = loadImage("chimpanzee.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -161,7 +171,7 @@ public void chimpanzee() {
 public void eagle() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "eagle.jpg");
+          Image img = loadImage("eagle.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -178,7 +188,7 @@ public void eagle() {
 public void rabbit() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath +   "rabbit.jpg");
+          Image img = loadImage("rabbit.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -195,7 +205,7 @@ public void rabbit() {
 public void cat() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "cat.jpg");
+          Image img = loadImage("cat.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -212,7 +222,7 @@ public void cat() {
 public void koala() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "koala.jpg");
+          Image img = loadImage("koala.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -229,7 +239,7 @@ public void koala() {
 public void dog() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "dog.jpg");
+          Image img = loadImage("dog.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -246,7 +256,7 @@ public void dog() {
 public void snake() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "snake.jpg");
+          Image img = loadImage("snake.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
@@ -263,7 +273,7 @@ public void snake() {
 public void ostrich() {
      JFrame frame = new JFrame() {
       public void paint(Graphics g) {
-          Image img = Toolkit.getDefaultToolkit().getImage(resourcePath + "ostrich.jpg");
+          Image img = loadImage("ostrich.jpg");
           MediaTracker mt = new MediaTracker(this);
           mt.addImage(img, 0);
           try {
