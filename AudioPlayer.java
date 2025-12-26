@@ -24,6 +24,7 @@ public class AudioPlayer implements LineListener {
     /**
      * this flag indicates whether the playback completes or not.
      */
+    static String resourcePath = "resources/audio/";
     static String audioFilePath;
     
     boolean playCompleted;
@@ -33,7 +34,7 @@ public class AudioPlayer implements LineListener {
      * @param audioFilePath Path of the audio file.
      */
     void play(String audioFilePath) {
-        File audioFile = new File(audioFilePath);
+        File audioFile = new File(resourcePath + audioFilePath);
  
         try {
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
