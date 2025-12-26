@@ -1,7 +1,7 @@
  
 import java.util.Scanner;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URL;
  
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -36,11 +36,11 @@ public class AudioPlayer implements LineListener {
     void play(String audioFilePath) {
         try {
             // Load from classpath (works in both JAR and development)
-            InputStream audioStreamInput = AudioPlayer.class.getResourceAsStream("/" + resourcePath + audioFilePath);
-            if (audioStreamInput == null) {
+            URL audioUrl = AudioPlayer.class.getResource("/" + resourcePath + audioFilePath);
+            if (audioUrl == null) {
                 throw new IOException("Resource not found: /" + resourcePath + audioFilePath);
             }
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioStreamInput);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioUrl);
  
             AudioFormat format = audioStream.getFormat();
  
