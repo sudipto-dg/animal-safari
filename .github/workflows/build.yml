@@ -1,0 +1,41 @@
+name: Build JAR
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '25'
+        distribution: 'temurin'
+        
+    - name: Compile Java files
+      run: javac *.java
+      
+    - name: Create manifest file
+      run: |
+        echo "Manifest-Version: 1.0" > MANIFEST.MF
+        echo "Main-Class: Animals" >> MANIFEST.MF
+        
+    - name: Create JAR file
+      run: jar cvfm animal-safari.jar MANIFEST.MF *.class resources/
+      
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: animal-safari-jar
+        path: animal-safari.jar
+        retention-days: 30
+
